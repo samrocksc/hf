@@ -1,5 +1,5 @@
 import "./App.css";
-import { JsonInterpreter } from "./SampleComponent";
+import { JsonInterpreter } from "./JsonInterpreter";
 
 function App() {
   return (

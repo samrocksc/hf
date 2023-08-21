@@ -14,6 +14,15 @@ const demoData = {
       prop: "iban",
       value: "DE81200505501265402568",
       hasError: false,
+      optional: {
+        field: "test",
+      },
+    },
+    {
+      id: "4c212130",
+      prop: "iban",
+      value: "DE81200505501265402568",
+      hasError: false,
     },
   ],
 };
@@ -96,7 +105,7 @@ export const RenderJson: React.FC<{
   data: JSONValue;
   setPathState: (input: string) => void;
   currentPath?: string;
-  arrayObj?: boolean;
+  arrayObj?: number;
   indentation?: number;
 }> = ({
   currentPath = "res",
@@ -118,7 +127,9 @@ export const RenderJson: React.FC<{
               {"{"}
             </span>
             <RenderJson
-              currentPath={currentPath + `.{key}`}
+              currentPath={
+                (!arrayObj && currentPath + `.${key}`) || currentPath
+              }
               data={value}
               indentation={indentation + 4}
               setPathState={setPathState}
@@ -137,7 +148,8 @@ export const RenderJson: React.FC<{
             </span>
             <RenderJson
               data={value}
-              arrayObj
+              currentPath={currentPath + `.[${arrayObj || 0}]`}
+              arrayObj={(arrayObj || 0) + 1}
               indentation={indentation + 4}
               setPathState={setPathState}
             />

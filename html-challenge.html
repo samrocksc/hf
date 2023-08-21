@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Attempt Two</title>
+    <style>
+        /* I put this together after reading Sara Soueidan: https://www.sarasoueidan.com/blog/svg-checkboxes */
+
+        /* we can target the checkbox and the label with css, we hide the initial checkbox here */
+        /* Let's start by adding the focus to both checkbox and svg */
+        .my-checkbox input[type="checkbox"]:focus,
+        .my-checkbox input[type="checkbox"]:focus+svg {
+            outline: 2px solid blue;
+            outline-offset: 4px;
+        }
+
+        /* let's put a square around the svg */
+        .my-checkbox svg {
+            display: inline-block;
+            vertical-align: middle;
+            margin-bottom: .2em;
+            width: 1em;
+            height: 1em;
+            border: 1px solid black;
+        }
+
+        /* clear the opacity of the polyline of the svg _initially_ */
+        .my-checkbox input[type="checkbox"]+svg polyline {
+            opacity: 0;
+        }
+
+        /* Update the polyline to show when clicked */
+        .my-checkbox input[type="checkbox"]:checked+svg polyline {
+            opacity: 100;
+        }
+
+        /* Hide initial checkbox and move everything seen over the top of it*/
+        .my-checkbox input[type="checkbox"] {
+            opacity: 0;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Checkbox</h1>
+    <label for="my-checkbox" class="my-checkbox">
+        <input type="checkbox" id="my-checkbox" />
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+            <rect width="256" height="256" fill="none"></rect>
+            <polyline points="216 72.005 104 184 48 128.005" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="16">
+            </polyline>
+        </svg>
+        A Button
+    </label>
+</body>
+
+</html>

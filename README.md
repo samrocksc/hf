@@ -4,6 +4,8 @@ Hello! Thanks for reading this. My name is Sam Clark, and I've put together this
 
 This is a fun challenge because typically you're working with the value of a JSON object, but when working with this, you're working with the declarer of the JSON document.
 
+    You can view the
+
 ## Requirements
 
 - a computer
@@ -15,6 +17,11 @@ I've went ahead and added a Makefile into the application for your ease of use. 
 
 - **html challenge** - `make html-challenge`
 - **json challenge** - `make json-challenge`
+
+For convenience I also added them to https://surge.sh for you:
+
+- [https://heyflow-sam-c.surge.sh/](JSON Challenge)
+- [https://sincere-land.surge.sh/](HTML Button Challenge)
 
 ## Challenges
 

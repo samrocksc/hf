@@ -5,6 +5,6 @@ configure:
 dev:
 	npm run dev
 html-challenge:
-	open ./html-challenge.html
+	open ./html-challenge/index.html
 react-challenge:
 	npm run dev

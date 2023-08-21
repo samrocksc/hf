@@ -3,6 +3,7 @@ import { isValueScalar, JSONValue } from "../helpers";
 export const RenderJson: React.FC<{
   data: JSONValue;
   setPathState: (input: string) => void;
+  setValue: (input: string) => void;
   currentPath?: string;
   arrayObj?: number;
   indentation?: number;
@@ -10,10 +11,15 @@ export const RenderJson: React.FC<{
   currentPath = "res",
   data,
   setPathState,
+  setValue,
   arrayObj,
   indentation = 0,
 }) => {
   const indent = Array(indentation).join(" ");
+  const handleClick = (state: string, value: string) => {
+    setPathState(state);
+    setValue(value);
+  };
   return (
     Object.entries(data).map(([key, value]) => {
       // handle object
@@ -32,6 +38,7 @@ export const RenderJson: React.FC<{
               data={value}
               indentation={indentation + 4}
               setPathState={setPathState}
+              setValue={setValue}
             />
             {indent}
             <span>{"},"}</span>
@@ -50,6 +57,7 @@ export const RenderJson: React.FC<{
               arrayObj={(arrayObj || 0) + 1}
               indentation={indentation + 4}
               setPathState={setPathState}
+              setValue={setValue}
             />
             {indent}
             <span>{"],"}</span>
@@ -61,7 +69,9 @@ export const RenderJson: React.FC<{
           <div key={value}>
             {indent}
             <span
-              onClick={() => setPathState(`${currentPath}.${key}`)}
+              onClick={() =>
+                handleClick(`${currentPath}.${key}`, value.toString())
+              }
               className="cursor-pointer text-blue-500"
             >
               "{key}":{" "}

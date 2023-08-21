@@ -22,6 +22,7 @@ export const JsonDisplay = () => {
   const [pathState, setPathState] = useState("res");
   const [showPretty, setShowPretty] = useState(false);
   const [isValid, setIsValid] = useState(true);
+  const [value, setValue] = useState("");
 
   const handleInput = (e: FormEvent<HTMLTextAreaElement>) => {
     e.preventDefault();
@@ -43,14 +44,6 @@ export const JsonDisplay = () => {
 
   return (
     <div className={`flex h-24 w-72 flex-col gap-6 text-left`}>
-      <div>
-        {showPretty && (
-          <NiceOutput
-            isValid={isValid}
-            stringified={JSON.stringify(jsonInput, null, 2)}
-          />
-        )}
-      </div>
       <label htmlFor="valText">
         <input
           type="text"
@@ -60,6 +53,7 @@ export const JsonDisplay = () => {
           readOnly
         ></input>
       </label>
+      <span>{value}</span>
       <label htmlFor="jsonInput">
         Place your JSON Below:
         <textarea
@@ -92,13 +86,23 @@ export const JsonDisplay = () => {
             strokeWidth="16"
           ></polyline>
         </svg>
-        Show ReadOnly Pretty Output
+        <span className="ml-2">Show ReadOnly Pretty Output</span>
       </label>
       <ClickableJson
         isValid={isValid}
         data={jsonInput}
         setPathState={setPathState}
+        setValue={setValue}
       />
+      {showPretty && (
+        <>
+          <hr />
+          <NiceOutput
+            isValid={isValid}
+            stringified={JSON.stringify(jsonInput, null, 2)}
+          />
+        </>
+      )}
     </div>
   );
 };

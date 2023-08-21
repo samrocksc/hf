@@ -4,9 +4,6 @@
 export const isObject = (value: JSONValue) =>
   value && typeof value === "object" && value.constructor === Object && value;
 
-export const isArray = (value: JSONValue) =>
-  value && typeof value === "object" && value.constructor === Array && value;
-
 /**
  * Validates if the value is a scalar value or compound.
  */

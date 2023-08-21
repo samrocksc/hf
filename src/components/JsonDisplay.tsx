@@ -1,3 +1,4 @@
+import "./JsonDisplay.css";
 import { FormEvent, useEffect, useState } from "react";
 import { ClickableJson } from "./ClickableJson";
 import { NiceOutput } from "./NiceOutput";
@@ -15,7 +16,7 @@ const demoData = {
   ],
 };
 
-export const InputWindow = () => {
+export const JsonDisplay = () => {
   const [textInput, setTextInput] = useState(JSON.stringify(demoData));
   const [jsonInput, setJsonInput] = useState({});
   const [pathState, setPathState] = useState("res");
@@ -51,24 +52,48 @@ export const InputWindow = () => {
         )}
       </div>
       <label htmlFor="valText">
-        <input type="text" id="valText" value={pathState} readOnly></input>
+        <input
+          type="text"
+          id="valText"
+          value={pathState}
+          className="rounded border border-black px-4"
+          readOnly
+        ></input>
       </label>
-      <label htmlFor="jsonInput">Place your JSON Below:</label>
-      <textarea
-        name="jsonInput"
-        rows={6}
-        cols={50}
-        value={textInput}
-        onChange={handleInput}
-        className={`${!isValid && "rounded border border-red-400"} px-4`}
-      />
-      <label htmlFor="showPretty">Show Pretty Output</label>
-      <input
-        type="checkbox"
-        value="showPretty"
-        id="showPretty"
-        onClick={() => setShowPretty(!showPretty)}
-      />
+      <label htmlFor="jsonInput">
+        Place your JSON Below:
+        <textarea
+          name="jsonInput"
+          id="jsonInput"
+          rows={6}
+          cols={50}
+          value={textInput}
+          onChange={handleInput}
+          className={`border-2 focus:border-none ${
+            (!isValid && "hover:border-red-500") || "border-black"
+          }`}
+        />
+      </label>
+      <label htmlFor="my-checkbox" className="my-checkbox">
+        <input
+          type="checkbox"
+          value="showPretty"
+          id="my-checkbox"
+          onClick={() => setShowPretty(!showPretty)}
+        />
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+          <rect width="256" height="256" fill="none"></rect>
+          <polyline
+            points="216 72.005 104 184 48 128.005"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="16"
+          ></polyline>
+        </svg>
+        Show ReadOnly Pretty Output
+      </label>
       <ClickableJson
         isValid={isValid}
         data={jsonInput}

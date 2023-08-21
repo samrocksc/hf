@@ -62,7 +62,7 @@ export const RenderJson: React.FC<{
             {indent}
             <span
               onClick={() => setPathState(`${currentPath}.${key}`)}
-              className="text-blue-500"
+              className="cursor-pointer text-blue-500"
             >
               "{key}":{" "}
             </span>

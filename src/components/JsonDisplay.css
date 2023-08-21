@@ -1,0 +1,31 @@
+.my-checkbox input[type="checkbox"]:focus,
+.my-checkbox input[type="checkbox"]:focus + svg {
+  outline: 2px solid blue;
+  outline-offset: 4px;
+}
+
+/* let's put a square around the svg */
+.my-checkbox svg {
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 0.2em;
+  width: 1em;
+  height: 1em;
+  border: 1px solid black;
+}
+
+/* clear the opacity of the polyline of the svg _initially_ */
+.my-checkbox input[type="checkbox"] + svg polyline {
+  opacity: 0;
+}
+
+/* Update the polyline to show when clicked */
+.my-checkbox input[type="checkbox"]:checked + svg polyline {
+  opacity: 100;
+}
+
+/* Hide initial checkbox and move everything seen over the top of it*/
+.my-checkbox input[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+}

@@ -31,6 +31,7 @@ export const InputWindow = () => {
   const [textInput, setTextInput] = useState(JSON.stringify(demoData));
   const [jsonInput, setJsonInput] = useState({});
   const [pathState, setPathState] = useState("res");
+  const [showPretty, setShowPretty] = useState(false);
   const [isValid, setIsValid] = useState(true);
 
   const handleInput = (e: FormEvent<HTMLTextAreaElement>) => {
@@ -54,25 +55,32 @@ export const InputWindow = () => {
   return (
     <div className={`flex h-24 w-72 flex-col gap-6 text-left`}>
       <div>
-        <ShowNiceOutput
-          isValid={isValid}
-          stringified={JSON.stringify(jsonInput, null, 2)}
-        />
+        {showPretty && (
+          <ShowNiceOutput
+            isValid={isValid}
+            stringified={JSON.stringify(jsonInput, null, 2)}
+          />
+        )}
       </div>
       <label htmlFor="valText">
         <input type="text" id="valText" value={pathState} readOnly></input>
       </label>
-      <label htmlFor="jsonInput">
-        Place your JSON Below:
-        <textarea
-          name="jsonInput"
-          rows={6}
-          cols={50}
-          value={textInput}
-          onChange={handleInput}
-          className={`${!isValid && "rounded border border-red-400"} px-4`}
-        />
-      </label>
+      <label htmlFor="jsonInput">Place your JSON Below:</label>
+      <textarea
+        name="jsonInput"
+        rows={6}
+        cols={50}
+        value={textInput}
+        onChange={handleInput}
+        className={`${!isValid && "rounded border border-red-400"} px-4`}
+      />
+      <label htmlFor="showPretty">Show Pretty Output</label>
+      <input
+        type="checkbox"
+        value="showPretty"
+        id="showPretty"
+        onClick={() => setShowPretty(!showPretty)}
+      />
       <ClickableJson
         isValid={isValid}
         data={jsonInput}

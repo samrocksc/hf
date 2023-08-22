@@ -4,11 +4,10 @@ Hello! Thanks for reading this. My name is Sam Clark, and I've put together this
 
 This is a fun challenge because typically you're working with the value of a JSON object, but when working with this, you're working with the declarer of the JSON document.
 
-    You can view the
 
 ## Requirements
 
-- a computer
+- a computer, this is designed for posix, but windows should work as well with makefile support
 - npm
 
 ## How to run?
@@ -18,7 +17,7 @@ I've went ahead and added a Makefile into the application for your ease of use. 
 - **html challenge** - `make html-challenge`
 - **json challenge** - `make json-challenge`
 
-For convenience I also added them to https://surge.sh for you:
+For convenience I also added them to <https://surge.sh> for you:
 
 - [https://heyflow-sam-c.surge.sh/](JSON Challenge)
 - [https://sincere-land.surge.sh/](HTML Button Challenge)
@@ -39,7 +38,8 @@ So often time when we are the interviwer, or the interviewee we learn things as 
    a. A key can be a number, but it is identified as a string
    b. A key of an array
 2. I first started off with a pretty easy component:
-   ```tsx
+
+   ```typescript
    export const ShowNiceOutput: React.FC<{
      isValid: boolean;
      stringified: JSONValue;
@@ -57,8 +57,13 @@ So often time when we are the interviwer, or the interviewee we learn things as 
      </>
    );
    ```
+
    - I quickly found out this method was not going to work very well because we needed to handle a lot of parsing
 
-## TODO:
+## TODO
 
-1.
+There are a lot of things to improve on this code.  I kept some of them simple so we can go through them together.
+
+1. Let's find a better naming structure for the components
+2. Let's move CSS from inline Tailwind to a css sheet
+3. What happens if this gets  more complex?

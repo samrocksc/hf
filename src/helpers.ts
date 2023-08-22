@@ -15,6 +15,10 @@ export const isValueScalar = (value: unknown) => {
   );
 };
 
+/**
+ * This should be all possible types of data that can
+ * be passed to the JSON.stringify function.
+ */
 export type JSONValue =
   | string
   | number

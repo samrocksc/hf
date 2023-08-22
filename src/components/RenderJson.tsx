@@ -1,5 +1,8 @@
 import { isValueScalar, JSONValue } from "../helpers";
 
+/**
+ * Main component for rendering the JSON data on the page in an interactive way
+ */
 export const RenderJson: React.FC<{
   data: JSONValue;
   setPathState: (input: string) => void;

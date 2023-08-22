@@ -4,7 +4,6 @@ Hello! Thanks for reading this. My name is Sam Clark, and I've put together this
 
 This is a fun challenge because typically you're working with the value of a JSON object, but when working with this, you're working with the declarer of the JSON document.
 
-
 ## Requirements
 
 - a computer, this is designed for posix, but windows should work as well with makefile support
@@ -60,10 +59,11 @@ So often time when we are the interviwer, or the interviewee we learn things as 
 
    - I quickly found out this method was not going to work very well because we needed to handle a lot of parsing
 
-## TODO
+## Things I've Left Open
 
-There are a lot of things to improve on this code.  I kept some of them simple so we can go through them together.
+There are a lot of things to improve on this code. Due to the time constraint of 4 hours I left them out. I kept some of them simple so we can go through them together!
 
 1. Let's find a better naming structure for the components
 2. Let's move CSS from inline Tailwind to a css sheet
-3. What happens if this gets  more complex?
+3. What happens if this gets more complex?
+4. Currently we're using a lot of prop drilling...but what if we want to extract the functionality and take a bit more OOP and invert control to the context API?

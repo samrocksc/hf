@@ -10,7 +10,7 @@ export const ClickableJson: React.FC<{
   return (
     <>
       <h2>Response:</h2>
-      <div className="w-96 rounded-sm border-2 border-white bg-white text-left text-black">
+      <div className="pretty">
         <pre>
           <code>
             <RenderJson

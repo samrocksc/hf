@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+#root {
+  margin: 0 auto;
+}
+
+.container {
+  @apply flex p-4 h-24 w-72 flex-col gap-6 text-left
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -16,6 +24,16 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
+
+h2 {
+  @apply text-2xl font-bold m-3;
+}
+
+footer {
+  @apply fixed bottom-0 bg-blue-200 w-full text-center p-4;
+}
+

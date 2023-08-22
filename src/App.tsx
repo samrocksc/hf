@@ -1,11 +1,14 @@
 import "./App.css";
-import { JsonInterpreter } from "./JsonInterpreter";
+import { JsonDisplay } from "./components/JsonDisplay";
 
 function App() {
   return (
     <>
-      <h1>My JSON Interpreter</h1>
-      <JsonInterpreter />
+      <header>
+        <h1>My JSON Interpreter</h1>
+      </header>
+      <JsonDisplay />
+      <footer>By Sam Clark</footer>
     </>
   );
 }

@@ -5,7 +5,8 @@ export const NiceOutput: React.FC<{
   stringified: JSONValue;
 }> = ({ isValid, stringified }) => (
   <>
-    <div className="text-left">
+    <h2>Pretty Output</h2>
+    <div className="pretty">
       {isValid ? (
         <pre>
           <code>{stringified.toString()}</code>

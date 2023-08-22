@@ -43,19 +43,27 @@ export const JsonDisplay = () => {
   }, [textInput]);
 
   return (
-    <div className={`flex h-24 w-72 flex-col gap-6 text-left`}>
-      <label htmlFor="valText">
-        <input
-          type="text"
-          id="valText"
-          value={pathState}
-          className="rounded border border-black px-4"
-          readOnly
-        ></input>
-      </label>
-      <span>{value}</span>
+    <section>
+      <div>
+        <label htmlFor="valText">
+          Current Path:
+          <br />
+          <input
+            type="text"
+            id="valText"
+            name="valText"
+            value={pathState}
+            className="rounded border border-black px-4"
+            readOnly
+          ></input>
+        </label>
+      </div>
+      <div>
+        <span>{value}</span>
+      </div>
       <label htmlFor="jsonInput">
         Place your JSON Below:
+        <br />
         <textarea
           name="jsonInput"
           id="jsonInput"
@@ -63,46 +71,50 @@ export const JsonDisplay = () => {
           cols={50}
           value={textInput}
           onChange={handleInput}
-          className={`border-2 focus:border-none ${
-            (!isValid && "hover:border-red-500") || "border-black"
-          }`}
+          className={`rounded border border-black px-4`}
         />
       </label>
-      <label htmlFor="my-checkbox" className="my-checkbox">
-        <input
-          type="checkbox"
-          value="showPretty"
-          id="my-checkbox"
-          onClick={() => setShowPretty(!showPretty)}
+
+      <div>
+        <label htmlFor="my-checkbox" className="my-checkbox">
+          <input
+            type="checkbox"
+            value="showPretty"
+            id="my-checkbox"
+            onClick={() => setShowPretty(!showPretty)}
+          />
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+            <rect width="256" height="256" fill="none"></rect>
+            <polyline
+              points="216 72.005 104 184 48 128.005"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="16"
+            ></polyline>
+          </svg>
+          <span className="ml-2">Show Readonly Pretty Output</span>
+        </label>
+      </div>
+
+      <div>
+        <ClickableJson
+          isValid={isValid}
+          data={jsonInput}
+          setPathState={setPathState}
+          setValue={setValue}
         />
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-          <rect width="256" height="256" fill="none"></rect>
-          <polyline
-            points="216 72.005 104 184 48 128.005"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="16"
-          ></polyline>
-        </svg>
-        <span className="ml-2">Show ReadOnly Pretty Output</span>
-      </label>
-      <ClickableJson
-        isValid={isValid}
-        data={jsonInput}
-        setPathState={setPathState}
-        setValue={setValue}
-      />
+      </div>
+
       {showPretty && (
         <>
-          <hr />
           <NiceOutput
             isValid={isValid}
             stringified={JSON.stringify(jsonInput, null, 2)}
           />
         </>
       )}
-    </div>
+    </section>
   );
 };

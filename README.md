@@ -18,8 +18,8 @@ I've went ahead and added a Makefile into the application for your ease of use. 
 
 For convenience I also added them to <https://surge.sh> for you:
 
-- [https://heyflow-sam-c.surge.sh/](JSON Challenge)
-- [https://sincere-land.surge.sh/](HTML Button Challenge)
+- [https://heyflow-sam-c.surge.sh](https://heyflow-sam-c.surge.sh) - JSON Challenge
+- [https://sincere-land.surge.sh](https://sincere-land.surge.sh) - HTML Challenge
 
 ## Challenges
 

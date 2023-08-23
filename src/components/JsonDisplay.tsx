@@ -1,5 +1,5 @@
 import "./JsonDisplay.css";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, Profiler, useEffect, useState } from "react";
 import { ClickableJson } from "./ClickableJson";
 import { NiceOutput } from "./NiceOutput";
 
